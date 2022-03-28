@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   // ignore: non_constant_identifier_names
-  final VoidCallback registerClick, clear, remove, equals;
+  final VoidCallback registerClick, clear, remove, equals, parenthesis;
   final String name;
   // ignore: use_key_in_widget_constructors
-  const Button(this.name, this.registerClick, this.equals, this.clear, this.remove);
+  const Button(this.name, this.registerClick, this.equals, this.clear, this.remove, this.parenthesis);
 
   bool isNumber(var value){
     if (value == null) {
@@ -23,7 +23,7 @@ class Button extends StatelessWidget {
   }
 
   VoidCallback _getFunction() {
-    if(name != '=' && name != '<-' && name != 'AC'){
+    if(name != '=' && name != '<-' && name != 'AC' && name != '()'){
       return registerClick; 
     }
     if (name == '=') {
@@ -32,6 +32,8 @@ class Button extends StatelessWidget {
       return remove;
     } else if (name == 'AC'){
       return clear;
+    } else if (name == '()'){
+      return parenthesis;
     }
     throw Exception('Button $name is missing a function.');
   }

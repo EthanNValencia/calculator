@@ -9,14 +9,14 @@ class Display extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(30),
+      margin: const EdgeInsets.all(10),
       child: Tooltip(
           child: Text(
             buttonText,
-            style: const TextStyle(fontSize: 28),
-            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 28, color: Colors.white),
+            textAlign: TextAlign.right,
           ),
-          message: 'None'),
+          message: ''),
     );
   }
 }
