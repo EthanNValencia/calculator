@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'button.dart';
 
-class Panel extends StatelessWidget {
+class ButtonPanel extends StatelessWidget {
   final List<List<String>> buttons;
   final Function clickButton, equals;
   final VoidCallback clear, remove, parenthesis;
   final String displayText;
 
-  Panel({
+  ButtonPanel({
     required this.displayText,
     required this.buttons,
     required this.clickButton,

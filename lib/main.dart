@@ -27,11 +27,35 @@ class _MyAppState extends State<MyApp> {
 
   void _equalsButton(String textDisplay) {
     setState(() {
+      _text = _text + _finishParenthesis();
+      _text = _fixEquation(_text);
       _previousText = _text;
       _text = _text.interpret().toString();
       _previousText = _previousText + ' = ' + _text;
     });
   }
+
+  String _finishParenthesis() {
+    if(_recentParenthesis == '('){
+      return ')';
+    }
+    return '';
+  }
+
+  String _fixEquation(String equation){
+  String result = equation;
+  RegExp reg = RegExp(r'[0-9]+[(]');
+  Iterable<RegExpMatch> allMatches = reg.allMatches(result);
+  if(allMatches.isNotEmpty) {
+    for(int i = 0; i < allMatches.length; i++) {
+      RegExpMatch match = allMatches.elementAt(i);
+      String matchString = match.group(0).toString();
+      matchString = matchString.replaceAll("(", "*(");
+      result = result.replaceAll(match.group(0).toString(), matchString);
+    }
+  }
+  return result;
+}
 
   void _resetDisplay() {
     setState(() {

@@ -5,9 +5,10 @@ class Button extends StatelessWidget {
   final VoidCallback registerClick, clear, remove, equals, parenthesis;
   final String name;
   // ignore: use_key_in_widget_constructors
-  const Button(this.name, this.registerClick, this.equals, this.clear, this.remove, this.parenthesis);
+  const Button(this.name, this.registerClick, this.equals, this.clear,
+      this.remove, this.parenthesis);
 
-  bool isNumber(var value){
+  bool isNumber(var value) {
     if (value == null) {
       return false;
     }
@@ -15,7 +16,7 @@ class Button extends StatelessWidget {
   }
 
   MaterialColor _getColor() {
-    if(isNumber(name)) {
+    if (isNumber(name)) {
       return Colors.red;
     } else {
       return Colors.grey;
@@ -23,16 +24,16 @@ class Button extends StatelessWidget {
   }
 
   VoidCallback _getFunction() {
-    if(name != '=' && name != '<-' && name != 'AC' && name != '()'){
-      return registerClick; 
+    if (name != '=' && name != '<-' && name != 'AC' && name != '()') {
+      return registerClick;
     }
     if (name == '=') {
       return equals;
-    } else if (name == '<-'){
+    } else if (name == '<-') {
       return remove;
-    } else if (name == 'AC'){
+    } else if (name == 'AC') {
       return clear;
-    } else if (name == '()'){
+    } else if (name == '()') {
       return parenthesis;
     }
     throw Exception('Button $name is missing a function.');
@@ -44,23 +45,18 @@ class Button extends StatelessWidget {
       margin: const EdgeInsets.all(8),
       width: MediaQuery.of(context).size.width * 0.20,
       height: MediaQuery.of(context).size.height * 0.10,
-      child: Align(
-        child: SizedBox(
-          width: 100,
-          height: 100,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: _getColor(),
-              shape: const CircleBorder(),
-            ),
-            child: Text(
-              name,
-              style: const TextStyle(fontSize: 25),
-            ),
-            onPressed: _getFunction(),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: _getColor(),
+            shape: const CircleBorder(),
           ),
+          child: Text(
+            name,
+            style: const TextStyle(fontSize: 25),
+          ),
+          onPressed: _getFunction(),
         ),
-      ),
+      
     );
   }
 }
