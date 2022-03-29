@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Display extends StatelessWidget {
   final String buttonText;
 
+  // ignore: use_key_in_widget_constructors
   const Display(this.buttonText);
 
   @override

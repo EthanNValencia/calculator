@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'button.dart';
 
@@ -7,7 +9,7 @@ class ButtonPanel extends StatelessWidget {
   final VoidCallback clear, remove, parenthesis;
   final String displayText;
 
-  ButtonPanel({
+  const ButtonPanel({
     required this.displayText,
     required this.buttons,
     required this.clickButton,
