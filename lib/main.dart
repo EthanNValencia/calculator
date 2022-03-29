@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:function_tree/function_tree.dart';
 import 'display.dart';
-import 'panel.dart';
+import 'buttonpanel.dart';
 
 void main() => runApp(MyApp());
 
@@ -135,7 +135,7 @@ class _MyAppState extends State<MyApp> {
               Display(_text),
               Display(_previousText),
               Expanded(child:Container()),
-              Panel(displayText: _text, equals: _equalsButton, clear: _resetDisplay, clickButton: _clickButton, buttons: _buttons, remove: _remove, parenthesis: _parenthesis,),
+              ButtonPanel(displayText: _text, equals: _equalsButton, clear: _resetDisplay, clickButton: _clickButton, buttons: _buttons, remove: _remove, parenthesis: _parenthesis,),
             ],
           ),
         ),
