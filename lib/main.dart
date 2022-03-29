@@ -105,9 +105,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          
           title: Header(),
-          // title: Image.asset('images/test1.png', fit: BoxFit.cover),
-          backgroundColor: Colors.grey,
+          // title: Image.asset('images/Nephew2.1Trans.png', fit: BoxFit.cover),
+          backgroundColor: Colors.red[800],
           shadowColor: Colors.redAccent,
         ),
         body: Center(
@@ -128,7 +129,7 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
         ),
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.red[300],
       ),
     );
   }

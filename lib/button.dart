@@ -15,7 +15,15 @@ class Button extends StatelessWidget {
     return double.tryParse(value) != null;
   }
 
-  MaterialColor _getColor() {
+  Color? _getColor() {
+    if (isNumber(name)) {
+      return Colors.red[800];
+    } else {
+      return Colors.grey;
+    }
+  }
+
+  MaterialColor _getShadow() {
     if (isNumber(name)) {
       return Colors.red;
     } else {
@@ -48,6 +56,7 @@ class Button extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: _getColor(),
+            shadowColor: _getShadow(),
             shape: const CircleBorder(),
           ),
           child: Text(

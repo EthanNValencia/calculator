@@ -16,21 +16,22 @@ class Header extends StatelessWidget {
               // alignment: Alignment.topLeft,
               child: Text(
                 'Calculator',
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 30, color: Colors.grey),
               ),
             ),
             Align(
               // alignment: Alignment.bottomLeft,
               child: Text(
                 'Nephew Software Solutions',
-                style: TextStyle(fontSize: 11.5),
+                style: TextStyle(fontSize: 11.5, color: Colors.grey),
               ),
             ),
           ],
         ),
-        const Text(
-          'IMAGE HERE',
-          style: TextStyle(fontSize: 14),
+        const Image(
+          width: 140,
+          height: 100,
+          image: AssetImage('images/Nephew2.1Small.png'),
         ),
       ],
     );
