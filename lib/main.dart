@@ -22,7 +22,19 @@ class _MyAppState extends State<MyApp> {
 
   void _clickButton(String textDisplay) {
     setState(() {
-      _text += textDisplay;
+      if (_text.isNotEmpty) {
+        String last = _text[_text.length - 1];
+        if (double.tryParse(last) == null) {
+          _text.substring(0, _text.length - 1);
+          _text += textDisplay;
+        } else if (double.tryParse(last) != null) {
+          if (_text.length <= 20) _text += textDisplay;
+        }
+      } else if (_text.isEmpty) {
+        if (double.tryParse(textDisplay) != null || textDisplay == '(') {
+          _text = textDisplay;
+        }
+      }
     });
   }
 
@@ -92,6 +104,13 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void _clearAll() {
+    _resetDisplay();
+    setState(() {
+      _previousText = '';
+    });
+  }
+
   final List<List<String>> _buttons = const [
     ['7', '8', '9', '+'],
     ['4', '5', '6', '-'],
@@ -104,8 +123,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          
           title: Header(),
           // title: Image.asset('images/Nephew2.1Trans.png', fit: BoxFit.cover),
           backgroundColor: Colors.red[800],
@@ -125,6 +144,7 @@ class _MyAppState extends State<MyApp> {
                 buttons: _buttons,
                 remove: _remove,
                 parenthesis: _parenthesis,
+                clearAll: _clearAll,
               ),
             ],
           ),

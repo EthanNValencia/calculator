@@ -6,7 +6,7 @@ import 'button.dart';
 class ButtonPanel extends StatelessWidget {
   final List<List<String>> buttons;
   final Function clickButton, equals;
-  final VoidCallback clear, remove, parenthesis;
+  final VoidCallback clear, remove, parenthesis, clearAll;
   final String displayText;
 
   const ButtonPanel({
@@ -17,13 +17,14 @@ class ButtonPanel extends StatelessWidget {
     required this.equals,
     required this.remove,
     required this.parenthesis,
+    required this.clearAll,
   });
 
   Widget getRow(List<String> strings) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: strings
-            .map((item) => Button(item, () => clickButton(item), () => equals(displayText), clear, remove, parenthesis))
+            .map((item) => Button(item, () => clickButton(item), () => equals(displayText), clear, remove, parenthesis, clearAll))
             .toList());
             // const Button(this.name, this.registerClick, this.equals, this.clear, this.delete);
   }
