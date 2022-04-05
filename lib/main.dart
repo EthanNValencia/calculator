@@ -17,25 +17,42 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _text = '';
+  String _recentInput = '';
   String _recentParenthesis = '';
   String _previousText = '';
 
   void _clickButton(String textDisplay) {
     setState(() {
+      try {
       if (_text.isNotEmpty) {
         String last = _text[_text.length - 1];
         if (double.tryParse(last) == null) {
           _text.substring(0, _text.length - 1);
           _text += textDisplay;
+          _recentInput = textDisplay;
         } else if (double.tryParse(last) != null) {
-          if (_text.length <= 20) _text += textDisplay;
+          if (_text.length <= 20) {
+            _recentInput = textDisplay;
+            _text += textDisplay;
+          }
         }
       } else if (_text.isEmpty) {
         if (double.tryParse(textDisplay) != null || textDisplay == '(') {
           _text = textDisplay;
         }
       }
+      } catch (Exception){
+        print("Something went wrong.");
+      }
     });
+  }
+
+  bool _equalsOperator(String recentInput, String lastInput){ // Compare recent and last input with each other determine if operator should be overwritten.
+    if(recentInput == lastInput){
+      return true;
+    }
+    /// if(latestInput == )
+    return false;
   }
 
   void _equalsButton(String textDisplay) {
