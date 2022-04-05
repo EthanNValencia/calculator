@@ -57,11 +57,16 @@ class _MyAppState extends State<MyApp> {
 
   void _equalsButton(String textDisplay) {
     setState(() {
+      try {
       _text = _text + _finishParenthesis();
       _text = _fixEquation(_text);
       _previousText = _text;
       _text = _text.interpret().toString();
       _previousText = _previousText + ' = ' + _text;
+      } catch (Exception){
+        _text = '';
+        _previousText = '';
+      }
     });
   }
 
