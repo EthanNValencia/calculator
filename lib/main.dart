@@ -64,8 +64,8 @@ class _MyAppState extends State<MyApp> {
       _text = _text.interpret().toString();
       _previousText = _previousText + ' = ' + _text;
       } catch (Exception){
+        _previousText = _previousText + ' = Error in Equation';
         _text = '';
-        _previousText = '';
       }
     });
   }

@@ -26,7 +26,6 @@ class ButtonPanel extends StatelessWidget {
         children: strings
             .map((item) => Button(item, () => clickButton(item), () => equals(displayText), clear, remove, parenthesis, clearAll))
             .toList());
-            // const Button(this.name, this.registerClick, this.equals, this.clear, this.delete);
   }
 
   @override
