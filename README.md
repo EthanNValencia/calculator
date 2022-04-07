@@ -2,4 +2,4 @@
 
 This is my calculator application. 
 
-Readme will be updated when app is approved on Google Play store.
+The calculator can be downloaded from the [Google Play Store](https://play.google.com/store/apps/details?id=com.ethannephew.calculator).
